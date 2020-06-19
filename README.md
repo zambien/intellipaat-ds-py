@@ -16,5 +16,5 @@ Verify everything is installed
 `python -c "import pandas as pd"`
 
 
-I used pandas_notes.py instead of a Jupyter notebook to track my progress.
+I used pandas_notes.py instead of a Jupyter notebook to track my progress.  So... without delaying any further...
 
