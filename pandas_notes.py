@@ -173,3 +173,43 @@ print(cars.count())
 
 print_header("cars.describe - summary of all descriptor statistics")
 print(cars.describe())
+
+print_header("Data Cleansing")
+
+print_header("rename column")
+cars = cars.rename(columns={'Unnamed: 1':'model'})
+print(cars)
+
+print_header("fill in null values with the mean of the column")
+cars.qsec = cars.qsec.fillna(cars.qsec.mean())
+print(cars)
+
+print_header("Drop unwanted columns")
+cars = cars.drop(columns=['S.No'])
+print(cars)
+
+print_header("Find correlation matrix")
+df = cars[['mpg','cyl','disp','hp','drat','wt','qsec','vs','am','gear','carb']].corr()
+print(df)
+
+print_header("Change the data type")
+cars.mpg = cars.mpg.astype(float)
+print (cars.info(null_counts=True))
+
+print_header("Find correlation matrix after correcting mpg from string to float")
+df = cars[['mpg','cyl','disp','hp','drat','wt','qsec','vs','am','gear','carb']].corr()
+print(df) 
+
+print_header("Manipulating the data set")
+
+print_header("view hp column only")
+print(cars.iloc[:,4])
+
+print_header("view first 5 rows of hp column only")
+print(cars.iloc[0:5,4])
+
+print_header("view all rows and columns")
+print(cars.iloc[:,:])
+
+print_header("view subset of rows and columns")
+print(cars.iloc[6:,4:])
