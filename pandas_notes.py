@@ -213,3 +213,35 @@ print(cars.iloc[:,:])
 
 print_header("view subset of rows and columns")
 print(cars.iloc[6:,4:])
+
+print_header("view by named column, not loc (location) instead of iloc (index location)")
+print(cars.loc[:,"mpg"])
+
+print_header("loc up to row 6 and column range")
+print(cars.loc[:6,"mpg":"qsec"])
+
+print_header("set all values of column am to 1")
+cars['am']=1
+print(cars)
+
+print_header("double up records in 'am' using lambda function")
+f = lambda x: x*2
+cars['am'] = cars['am'].apply(f)
+print(cars)
+
+print_header("sorting cyl column ascending")
+print(cars.sort_values(by='cyl'))
+
+print_header("sorting cyl column descending")
+print(cars.sort_values(by='cyl', ascending=False))
+
+print_header("filter records to cyl > 6")
+print(cars['cyl'] > 6)
+
+print_header("print records with cyl > 6")
+filter1 = cars['cyl'] > 6
+print(cars[filter1])
+
+print_header("print records with cyl > 6 and more than 300 hp")
+filter2 = (cars['cyl'] > 6) & (cars['hp'] > 300)
+print (cars[filter2])
